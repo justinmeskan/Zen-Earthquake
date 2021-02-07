@@ -1,0 +1,24 @@
+.detail {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.detail_table {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.detail_title {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.detail_data {
+    margin: 8px 32px 8px 8px;
+    width: 200px;
+}
+
+.detail_value {
+    margin: 8px 32px 8px 32px;
+}

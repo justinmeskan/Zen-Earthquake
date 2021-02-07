@@ -1,0 +1,30 @@
+* {
+    Font-family: sans-serif;
+}
+
+.zen_home {
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.zen_title {
+    display: flex;
+    align-self: center;
+    margin: 16px 0 0 16px;
+}
+
+.zen_table {
+    margin: 16px 160px 0 160px;
+}
+
+.td_magnitude {
+    text-align: center;
+}
+.td_title {
+    text-align: left;
+}
+.td_time {
+    text-align: right;
+}

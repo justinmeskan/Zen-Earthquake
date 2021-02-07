@@ -1,0 +1,39 @@
+.avatar {
+    height: 128px;
+    width: 128px;
+}
+
+.profile {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.profile_title {
+    display: flex;
+    margin-bottom: 16px;
+    justify-content :  center;
+}
+
+.profile_value {
+    max-width: 300px;
+}
+
+.profile_wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.profile_image {
+    display: flex;
+    justify-content :  center;
+}
+
+.profile_data {
+    display: flex;
+    padding-top: 2px;
+    margin: 8px 8px 8px 8px;
+
+}

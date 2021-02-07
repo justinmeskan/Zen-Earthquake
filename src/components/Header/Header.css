@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 64px;
+    background-color: #ededed;
+    justify-content: space-between;
+}
+
+.header_link {
+    display: flex;
+    margin: 8px 8px 8px 8px;
+    align-self: center;
+}
+.header_title {
+    display: flex;
+    align-self: flex-start;
+    margin: 8px 8px 8px 8px;
+    color: #777777;
+}
+.header_profile {
+    display: flex;
+    margin: 8px 8px 8px 8px;
+    justify-self: center;
+    align-self: center
+
+}
+
+.header_image {
+    display: flex;
+    height: 36px;
+    width: 36px;
+
+}
