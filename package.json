@@ -15,8 +15,9 @@
     "redux-thunk": "2.3.0"
   },
   "scripts": {
+    "start" : "npm run build && npm run dev",
     "dev": "webpack-dev-server",
-    "build": "rm -rf build && webpack --watch",
+    "build": "rm -rf build && webpack",
     "clean": "rm -rf node_modules && npm i",
     "test": "jest",
     "test:watch": "jest --watch",
