@@ -27,11 +27,16 @@ class App extends React.Component {
         })
     }
 
+    componentDidMount() {
+
+    }
+
     addDetailToStore(detail) {
         this.props.dispatchDetail(detail)
     }
 
     render() {
+        console.log('state', this.state.JSONData)
         return (
             <div data-test="component-app" className={"app zen_home"}>
                 <Header  />
@@ -55,7 +60,15 @@ class App extends React.Component {
                             return (
                                 <tr className={"tr"} key={i}>
                                     <td className={"td_title"}>
-                                        <Link onClick={() => this.addDetailToStore(feature.properties)} to={"/detail"}> {feature.properties.place} </Link>
+                                        <Link onClick={() => {
+                                            this.addDetailToStore(feature.properties)
+                                        }} to={() => ({
+                                            pathname: '/detail',
+                                            state: {
+                                                app: {...this.state.JSONData},
+                                                detail: feature.properties
+                                            }
+                                        })}> {feature.properties.place} </Link>
                                     </td>
                                     <td className={"td_magnitude"}>
                                         {feature.properties.mag}
@@ -76,6 +89,7 @@ class App extends React.Component {
 
 
 const mapStateToProps = (state) => ({
+    location: state.router.location
 })
 
 const mapDispatchToProps = (dispatch) => ({

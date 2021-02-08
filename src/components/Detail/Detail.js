@@ -2,10 +2,23 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './Detail.css'
 import Header from '../Header/Header'
+import history from "../../store";
+import {GET_DATA} from "../../store/reducers/app/appAction";
+import {LOAD_DETAILS} from "../../store/reducers/detail/detailActon";
 
 class Detail extends React.Component {
     constructor(props) {
         super(props)
+    }
+
+    componentDidMount() {
+        if( Object.keys(this.props.JSONData.site).length === 0 ) {
+            this.props.dispatchJSONData(history.getState().router.location.state.app)
+        }
+
+        if(Object.keys(this.props.detail).length === 0 ) {
+            this.props.dispatchDetail(history.getState().router.location.state.detail)
+        }
     }
 
     render() {
@@ -72,8 +85,15 @@ class Detail extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-    detail: state.detail
+    detail: state.detail,
+    JSONData: state.app
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    dispatchJSONData: (payload) => dispatch({ type: GET_DATA, payload}),
+    dispatchDetail: (payload) => dispatch({ type: LOAD_DETAILS, payload})
+
 })
 
 
-export default connect(mapStateToProps,)(Detail)
+export default connect(mapStateToProps, mapDispatchToProps)(Detail)

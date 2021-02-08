@@ -2,10 +2,18 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './Profile.css'
 import Header from '../Header/Header'
+import history from "../../store"
+import {GET_DATA} from "../../store/reducers/app/appAction"
 
 class Profile extends React.Component {
     constructor(props) {
         super(props)
+    }
+
+    componentDidMount() {
+        if( Object.keys(this.props.profile).length === 0 ) {
+            this.props.dispatchJSONData(history.getState().router.location.state.app)
+        }
     }
 
     render() {
@@ -72,5 +80,8 @@ const mapStateToProps = (state) => ({
     profile: state.app.profile
 })
 
+const mapDispatchToProps = (dispatch) => ({
+    dispatchJSONData: (payload) => dispatch({ type: GET_DATA, payload})
+})
 
-export default connect(mapStateToProps,)(Profile)
+export default connect(mapStateToProps, mapDispatchToProps )(Profile)
